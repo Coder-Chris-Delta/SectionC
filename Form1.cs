@@ -15,35 +15,35 @@ namespace SectionC
 
             if (string.IsNullOrWhiteSpace(mobileCode))
             {
-                MessageBox.Show("Please enter a mobile code");
-            }
-            if (string.IsNullOrWhiteSpace(make))
+                MessageBox.Show("Please enter the a mobile code");
+            }else if (string.IsNullOrWhiteSpace(make))
             {
-                MessageBox.Show("Please enter a make");
+                MessageBox.Show("Please enter the make");
+            }else if((!int.TryParse(quantity, out int phoneQuantity))){
+                MessageBox.Show("Please enter the the quantity in a number");
             }
-            if (!int.TryParse(quantity, out int phoneQuantity))
+            else
             {
-                MessageBox.Show("Please enter the number of quantity ");
+                tblMobilePhones.Items.Add("Mobile Code:\t \n Make:\t \n \t Quantity:\t");
+                tblMobilePhones.Items.Add(mobileCode);
+                tblMobilePhones.Items.Add(make);
+                tblMobilePhones.Items.Add(quantity);
+                lblOutput.Text = "Record Added";
             }
-            tblMobilePhones.Items.Add("Mobile Code \t Make \t Quantity");
-            tblMobilePhones.Items.Add(mobileCode);
-            tblMobilePhones.Items.Add(make);
-            tblMobilePhones.Items.Add(quantity);
 
 
 
-            lblOutput.Text = "Record Added";
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            string code = txtCode.Text; 
+            string code = txtCode.Text;
             if (string.IsNullOrWhiteSpace(code))
             {
                 MessageBox.Show("Please enter a code to delete in the MobileCode Box");
             }
 
-        
+
 
             if (code.Equals(tblMobilePhones.Items[1].ToString()))
             {

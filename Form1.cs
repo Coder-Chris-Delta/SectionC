@@ -25,30 +25,38 @@ namespace SectionC
             {
                 MessageBox.Show("Please enter the number of quantity ");
             }
+            tblMobilePhones.Items.Add("Mobile Code \t Make \t Quantity");
+            tblMobilePhones.Items.Add(mobileCode);
+            tblMobilePhones.Items.Add(make);
+            tblMobilePhones.Items.Add(quantity);
 
-            tblMobilePhones.Items.Add($"Mobile code :{mobileCode} Make: {make} Quantity: {phoneQuantity}");
+
 
             lblOutput.Text = "Record Added";
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            string code = txtCode.Text;
+            string code = txtCode.Text; 
             if (string.IsNullOrWhiteSpace(code))
             {
                 MessageBox.Show("Please enter a code to delete in the MobileCode Box");
             }
 
+        
 
-            if (tblMobilePhones.Items.Contains(code))
+            if (code.Equals(tblMobilePhones.Items[1].ToString()))
             {
-                tblMobilePhones.Items.Remove(code);
+                tblMobilePhones.Items.Clear();
                 lblOutput.Text = "Record Found";
             }
             else
             {
-                lblOutput.Text = "Record NOT Found";
+                lblOutput.Text = "Record NOT found";
             }
+
+
+
         }
 
         private void btnFind_Click(object sender, EventArgs e)
@@ -63,7 +71,7 @@ namespace SectionC
                 lblOutput.Text = "Record Deleted";
             }
 
-            
+
         }
     }
 }

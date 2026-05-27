@@ -24,7 +24,6 @@ namespace SectionC
             }
             else
             {
-                tblMobilePhones.Items.Add("Mobile Code:\t \n Make:\t \n \t Quantity:\t");
                 tblMobilePhones.Items.Add(mobileCode);
                 tblMobilePhones.Items.Add(make);
                 tblMobilePhones.Items.Add(quantity);
@@ -45,9 +44,11 @@ namespace SectionC
 
 
 
-            if (code.Equals(tblMobilePhones.Items[1].ToString()))
+            if (code.Equals(tblMobilePhones.Items[0].ToString()))
             {
+                tblMobilePhones.Items.Remove(tblMobilePhones.Items[0]);
                 tblMobilePhones.Items.Clear();
+                
                 lblOutput.Text = "Record Found";
             }
             else
